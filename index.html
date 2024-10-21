@@ -41,6 +41,9 @@
             position: relative;
             z-index: 1;
         }
+        .chat-type-section {
+            display: none;
+        }
         .title {
             font-size: 2.5rem;
             color: white;
@@ -184,6 +187,42 @@
             font-family: 'Roboto', sans-serif;
             margin-left: 10px;
         }
+        .chat-type-options {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            margin-top: 20px;
+        }
+        .chat-type-button {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            background-color: white;
+            border: 2px solid black;
+            border-radius: 10px;
+            padding: 15px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        .chat-type-button:hover {
+            transform: scale(1.05);
+        }
+        .chat-type-icon {
+            width: 80px;
+            height: 80px;
+            margin-bottom: 10px;
+        }
+        .chat-type-button span {
+            font-family: 'Fredoka One', cursive;
+            font-size: 1.2rem;
+            color: black;
+        }
+        .chat-type-description {
+            font-family: 'Fredoka One', cursive;
+            font-size: 1rem;
+            color: black;
+            margin-top: 20px;
+        }
     </style>
 </head>
 <body>
@@ -217,6 +256,20 @@
             <button class="next-button">Next</button>
             <p class="warning-text">WARNING: Ducklings may be banned for sharing passwords. Ensure your child's duckling password is only entered on the official clubduckling.com or miniclip.com website</p>
         </div>
+        <div class="duckling-protector chat-type-section">
+            <h1 class="title">SELECT YOUR<br>CHAT TYPE</h1>
+            <div class="chat-type-options">
+                <button class="chat-type-button">
+                    <img src="/path/to/safe-chat-icon.svg" alt="Safe Chat Icon" class="chat-type-icon">
+                    <span>Safe Chat</span>
+                </button>
+                <button class="chat-type-button">
+                    <img src="/path/to/ultimate-safe-chat-icon.svg" alt="Ultimate Safe Chat Icon" class="chat-type-icon">
+                    <span>Ultimate Safe Chat</span>
+                </button>
+            </div>
+            <p class="chat-type-description">Choose the chat type for your duckling</p>
+        </div>
         <div class="sticky-note">
             REMIND YOUR CHILD TO NEVER SHARE THEIR PASSWORD
         </div>
@@ -228,11 +281,11 @@
                 <div class="step-indicator active"></div>
                 <div class="step-indicator active"></div>
                 <div class="step-indicator active"></div>
-                <div class="step-indicator"></div>
+                <div class="step-indicator active"></div>
                 <div class="step-indicator"></div>
                 <div class="step-indicator"></div>
             </div>
-            <div class="step-text">Step 5 of 8</div>
+            <div class="step-text">Step 6 of 8</div>
         </div>
     </div>
     
@@ -288,10 +341,13 @@
                 return;
             }
             
-            const urlParams = new URLSearchParams(window.location.search);
-            const ducklingName = urlParams.get('duckling-name');
+            // Hide password section and show chat type section
+            document.querySelector('.duckling-protector:not(.chat-type-section)').style.display = 'none';
+            document.querySelector('.chat-type-section').style.display = 'block';
             
-            window.location.href = `https://websim.ai/@api/club-duckling-chat-type?duckling-name=${encodeURIComponent(ducklingName)}&step=6`;
+            // Update step indicator and text
+            document.querySelectorAll('.step-indicator')[5].classList.add('active');
+            document.querySelector('.step-text').textContent = 'Step 6 of 8';
         });
     </script>
 <script defer src="https://static.cloudflareinsights.com/beacon.min.js/v8c78df7c7c0f484497ecbca7046644da1771523124516" integrity="sha512-8DS7rgIrAmghBFwoOTujcf6D9rXvH8xm8JQ1Ja01h9QX8EzXldiszufYa4IFfKdLUKTTrnSFXLDkUEOTrZQ8Qg==" data-cf-beacon='{"version":"2024.11.0","token":"4c6229722a6346bc8eb5cb0e5eae5d41","server_timing":{"name":{"cfCacheStatus":true,"cfEdge":true,"cfExtPri":true,"cfL4":true,"cfOrigin":true,"cfSpeedBrain":true},"location_startswith":null}}' crossorigin="anonymous"></script>
