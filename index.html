@@ -247,11 +247,18 @@
                 } else {
                     document.getElementById('duckling-name-display').textContent = ducklingName;
                 }
-            }, 5000); // Wait for 1 second (1000 milliseconds)
+            }, 1000); // Wait for 1 second (1000 milliseconds)
         });
 
         document.querySelector('.back-button').addEventListener('click', function() {
-            window.location.href = 'https://websim.ai/@api/club-duckling-name';
+            const urlParams = new URLSearchParams(window.location.search);
+            const ducklingName = urlParams.get('duckling-name');
+            
+            if (ducklingName) {
+                window.location.href = `https://websim.ai/@api/club-duckling-create-duckling?duckling-name=${encodeURIComponent(ducklingName)}&step=4`;
+            } else {
+                window.location.href = 'https://websim.ai/@api/club-duckling-landing-page';
+            }
         });
 
         document.querySelector('.next-button').addEventListener('click', function() {
@@ -268,8 +275,6 @@
                 return;
             }
             
-            // Here you would normally send the data to a server
-            // For this example, we'll just simulate moving to the next page
             window.location.href = 'https://websim.ai/@api/club-duckling-next-step';
         });
     </script>
