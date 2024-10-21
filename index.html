@@ -199,7 +199,7 @@
             display: flex;
             flex-direction: column;
             align-items: center;
-            background-color: white;
+            background-color: #e6f3ff; /* Light blue background */
             border: 2px solid black;
             border-radius: 10px;
             padding: 15px;
@@ -207,17 +207,20 @@
             transition: all 0.3s ease;
         }
         .chat-type-button:hover {
+            background-color: #FFA500; /* Orange background on hover */
             transform: scale(1.05);
         }
         .chat-type-icon {
-            width: 100px;
-            height: 100px;
+            width: 60px;
+            height: 60px;
             margin-bottom: 10px;
         }
         .chat-type-button span {
             font-family: 'Fredoka One', cursive;
-            font-size: 1rem;
+            font-size: 0.9rem;
             color: black;
+            text-align: center;
+            line-height: 1.2;
         }
         .chat-type-subtitle {
             font-family: 'Fredoka One', cursive;
@@ -264,12 +267,18 @@
             <p class="chat-type-subtitle">Please read the following and select which type<br>of safe-chat you would like your child to use:</p>
             <div class="chat-type-options">
                 <button class="chat-type-button">
-                    <img src="/path/to/safe-chat-icon.svg" alt="Safe Chat Icon" class="chat-type-icon">
-                    <span>Safe Chat</span>
+                    <svg class="chat-type-icon" viewBox="0 0 24 24">
+                        <circle cx="12" cy="12" r="10" fill="#4285f4"/>
+                        <text x="12" y="16" font-size="12" text-anchor="middle" fill="white">SC</text>
+                    </svg>
+                    <span>Safe Chat<br>Parents can choose words</span>
                 </button>
                 <button class="chat-type-button">
-                    <img src="/path/to/ultimate-safe-chat-icon.svg" alt="Ultimate Safe Chat Icon" class="chat-type-icon">
-                    <span>Ultimate Safe Chat</span>
+                    <svg class="chat-type-icon" viewBox="0 0 24 24">
+                        <circle cx="12" cy="12" r="10" fill="#34a853"/>
+                        <text x="12" y="16" font-size="12" text-anchor="middle" fill="white">USC</text>
+                    </svg>
+                    <span>Ultimate Safe Chat<br>Only choose words</span>
                 </button>
             </div>
         </div>
