@@ -90,6 +90,7 @@
             color: white;
             text-shadow: 2px 2px 0 #000, -2px -2px 0 #000, 2px -2px 0 #000, -2px 2px 0 #000;
             line-height: 1;
+            cursor: pointer;
         }
         .club-duckling-logo .club { font-size: 1.875em; letter-spacing: 0.05em; }
         .club-duckling-logo .duckling { color: #FFA500; }
@@ -341,11 +342,11 @@
                 <div class="step-indicator active"></div>
                 <div class="step-indicator active"></div>
                 <div class="step-indicator active"></div>
-                <div class="step-indicator active"></div>
+                <div class="step-indicator"></div>
                 <div class="step-indicator"></div>
                 <div class="step-indicator"></div>
             </div>
-            <div class="step-text">Step 6 of 8</div>
+            <div class="step-text">Step 5 of 8</div>
         </div>
     </div>
     
@@ -382,13 +383,27 @@
         });
 
         document.querySelector('.back-button').addEventListener('click', function() {
-            const urlParams = new URLSearchParams(window.location.search);
-            const ducklingName = urlParams.get('duckling-name');
-            
-            if (ducklingName) {
-                window.location.href = `https://websim.ai/@api/club-duckling-create-duckling?duckling-name=${encodeURIComponent(ducklingName)}&step=4`;
+            const passwordSection = document.querySelector('.duckling-protector:not(.chat-type-section)');
+            const chatTypeSection = document.querySelector('.chat-type-section');
+            const stepIndicators = document.querySelectorAll('.step-indicator');
+            const stepText = document.querySelector('.step-text');
+
+            if (chatTypeSection.style.display === 'block') {
+                // If on step 6, go back to step 5
+                passwordSection.style.display = 'block';
+                chatTypeSection.style.display = 'none';
+                stepIndicators[5].classList.remove('active');
+                stepText.textContent = 'Step 5 of 8';
             } else {
-                window.location.href = 'https://websim.ai/@api/club-duckling-landing-page';
+                // If on step 5 or earlier, navigate to the previous page
+                const urlParams = new URLSearchParams(window.location.search);
+                const ducklingName = urlParams.get('duckling-name');
+
+                if (ducklingName) {
+                    window.location.href = `https://websim.ai/@api/club-duckling-create-duckling?duckling-name=${encodeURIComponent(ducklingName)}&step=4`;
+                } else {
+                    window.location.href = 'https://websim.ai/@api/club-duckling-landing-page';
+                }
             }
         });
 
