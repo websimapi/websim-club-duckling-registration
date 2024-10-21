@@ -190,44 +190,47 @@
         .chat-type-options {
             display: flex;
             justify-content: center;
-            gap: 20px;
-            margin-top: 1rem;
+            gap: 30px;
+            margin-top: 2rem;
         }
         .chat-type-button {
-            width: 160px;
-            height: 160px;
+            width: 200px;
+            height: 200px;
             display: flex;
             flex-direction: column;
             align-items: center;
-            background-color: #e6f3ff; /* Light blue background */
-            border: 2px solid black;
-            border-radius: 10px;
-            padding: 15px;
+            background-color: #e6f3ff;
+            border: 3px solid black;
+            border-radius: 15px;
+            padding: 20px;
             cursor: pointer;
             transition: all 0.3s ease;
         }
         .chat-type-button:hover {
-            background-color: #FFA500; /* Orange background on hover */
-            transform: scale(1.05);
+            background-color: #FFA500;
         }
         .chat-type-icon {
-            width: 60px;
-            height: 60px;
-            margin-bottom: 10px;
+            width: 80px;
+            height: 80px;
+            margin-bottom: 15px;
         }
         .chat-type-button span {
             font-family: 'Fredoka One', cursive;
+            font-size: 1rem;
+            line-height: 1.3;
+        }
+        .chat-type-title {
+            font-family: 'Fredoka One', cursive;
+            font-size: 1.2rem;
+            color: black;
+            margin-bottom: 5px;
+        }
+        .chat-type-description {
+            font-family: 'Roboto', sans-serif;
             font-size: 0.9rem;
             color: black;
             text-align: center;
             line-height: 1.2;
-        }
-        .chat-type-subtitle {
-            font-family: 'Fredoka One', cursive;
-            font-size: 1.1rem;
-            color: black;
-            margin-bottom: 2rem;
-            line-height: 1.4;
         }
     </style>
 </head>
@@ -271,7 +274,10 @@
                         <circle cx="12" cy="12" r="10" fill="#4285f4"/>
                         <text x="12" y="16" font-size="12" text-anchor="middle" fill="white">SC</text>
                     </svg>
-                    <span>Safe Chat<br>Parents can choose words</span>
+                    <div class="chat-type-title">Standard Safe Chat</div>
+                    <div class="chat-type-description">
+                        Children can communicate freely using a dictionary of pre-approved words
+                    </div>
                 </button>
                 <button class="chat-type-button">
                     <svg class="chat-type-icon" viewBox="0 0 24 24">
