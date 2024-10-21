@@ -226,22 +226,21 @@
         }
         .chat-type-title {
             font-family: 'Fredoka One', cursive;
-            font-size: 1.6rem; /* Increased from 1.25rem */
+            font-size: 1.6rem; /* Reduced from 2rem */
             color: #FFA500;
             -webkit-text-stroke: 2px black; /* Increased from 1px */
             text-stroke: 2px black; /* Increased from 1px */
             line-height: 1; /* Reduced from 1.2 */
             margin-bottom: -5px; /* Added negative margin */
-            font-weight: bold; /* Added bold */
         }
         .chat-type-subtitle {
-            font-family: 'Roboto', sans-serif;
-            font-size: 1.2rem; /* Increased font size */
-            color: white; /* Changed from black to white */
-            -webkit-text-stroke: 2px black; /* Added black outline */
-            text-stroke: 2px black; /* Added black outline */
-            line-height: 1.2;
-            margin-bottom: 20px;
+            font-family: 'Fredoka One', cursive;
+            font-size: 1.4rem;
+            color: white;
+            -webkit-text-stroke: 2px black; /* Added */
+            text-stroke: 2px black; /* Added */
+            text-shadow: 2px 2px 0 #000, -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000;
+            line-height: 1; /* Reduced from 1.2 */
         }
         .chat-type-description {
             font-family: 'Roboto', sans-serif;
@@ -313,13 +312,21 @@
                         NOTE: Some chat messages in this mode might get through the filters and be offensive to some players.
                     </div>
                 </div>
-                <button class="chat-type-button">
-                    <svg class="chat-type-icon" viewBox="0 0 24 24">
-                        <circle cx="12" cy="12" r="10" fill="#34a853"></circle>
-                        <text x="12" y="16" font-size="12" text-anchor="middle" fill="white">USC</text>
-                    </svg>
-                    <span>Ultimate Safe Chat<br>Only choose words</span>
-                </button>
+                <div class="chat-type-button">
+                    <div class="chat-type-header">
+                        <svg class="chat-type-icon" viewBox="0 0 24 24">
+                            <circle cx="12" cy="12" r="10" fill="#34a853"></circle>
+                            <text x="12" y="16" font-size="12" text-anchor="middle" fill="white">USC</text>
+                        </svg>
+                        <div class="chat-type-title-container">
+                            <div class="chat-type-title">ULTIMATE</div>
+                            <div class="chat-type-subtitle">SAFE-CHAT</div>
+                        </div>
+                    </div>
+                    <div class="chat-type-description">
+                        This restricts your child to a list of pre-written words or phrases. They will not be able to type their own chat messages. This is the safest method and is recommended for younger players.
+                    </div>
+                </div>
             </div>
         </div>
         <div class="sticky-note">
