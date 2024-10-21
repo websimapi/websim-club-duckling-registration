@@ -1,4 +1,4 @@
-<!DOCTYPE html><html><head><base href="https://duckling.example.com/">
+<html><head><base href="https://duckling.example.com/">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Protect Your Child's Duckling - Club Duckling</title>
@@ -39,9 +39,6 @@
             box-sizing: border-box;
             position: relative;
             z-index: 1;
-            background-color: rgba(255, 255, 255, 0.1);
-            border-radius: 15px;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
         }
         .title {
             font-size: 2.5rem;
@@ -133,17 +130,19 @@
         }
         .input-container {
             margin: 15px 0;
+            display: flex;
+            align-items: center;
         }
         .input-label {
-            display: block;
-            text-align: left;
-            margin-bottom: 5px;
+            flex: 0 0 150px;
+            text-align: right;
+            margin-right: 10px;
             color: white;
             font-family: 'Fredoka One', cursive;
             font-size: 1rem;
         }
         .input-field {
-            width: 100%;
+            flex: 1;
             padding: 10px;
             font-size: 1rem;
             border: 2px solid black;
@@ -173,8 +172,13 @@
             font-family: 'Fredoka One', cursive;
             color: black;
             text-align: center;
-            right: -60px;
+            right: 15%;
             top: 50%;
+            transform: translateY(-50%) rotate(5deg);
+        }
+        .duckling-name {
+            font-weight: bold;
+            color: #FFA500;
         }
     </style>
 </head>
@@ -192,26 +196,26 @@
                 <div class="duckling">DUCKLING</div>
             </div>
         </div>
-        <div class="duckling-protector" style="background-color: transparent; box-shadow: none; border-radius: 0;">
-    <h1 class="title">PROTECT YOUR<br>CHILD'S DUCKLING</h1>
-    <div class="input-container">
-        <label class="input-label" for="duckling-name">Duckling Name:</label>
-        <input type="text" id="duckling-name" class="input-field" value="Jellybrocks1" readonly="">
-    </div>
-    <div class="input-container">
-        <label class="input-label" for="password">Password:</label>
-        <input type="password" id="password" class="input-field" placeholder="Minimum 6 Characters">
-    </div>
-    <div class="input-container">
-        <label class="input-label" for="confirm-password">Confirm Password:</label>
-        <input type="password" id="confirm-password" class="input-field" placeholder="Minimum 6 Characters">
-    </div>
-    <button class="next-button">Next</button>
-    <p class="warning-text">WARNING: Ducklings may be banned for sharing passwords. Ensure your child's duckling password is only entered on the official clubduckling.com or miniclip.com website</p>
-</div>
-        <div class="sticky-note" style="position: absolute; right: 15%; top: 50%; transform: translateY(-50%) rotate(5deg);">
-    REMIND YOUR CHILD TO NEVER SHARE THEIR PASSWORD
-</div>
+        <div class="duckling-protector">
+            <h1 class="title">PROTECT YOUR<br>CHILD'S DUCKLING</h1>
+            <div class="input-container">
+                <label class="input-label" for="duckling-name">Duckling Name:</label>
+                <span id="duckling-name-display" class="duckling-name"></span>
+            </div>
+            <div class="input-container">
+                <label class="input-label" for="password">Password:</label>
+                <input type="password" id="password" class="input-field" placeholder="Minimum 6 Characters">
+            </div>
+            <div class="input-container">
+                <label class="input-label" for="confirm-password">Confirm Password:</label>
+                <input type="password" id="confirm-password" class="input-field" placeholder="Minimum 6 Characters">
+            </div>
+            <button class="next-button">Next</button>
+            <p class="warning-text">WARNING: Ducklings may be banned for sharing passwords. Ensure your child's duckling password is only entered on the official clubduckling.com or miniclip.com website</p>
+        </div>
+        <div class="sticky-note">
+            REMIND YOUR CHILD TO NEVER SHARE THEIR PASSWORD
+        </div>
         <div class="step-navigation">
             <button class="back-button">Back</button>
             <div class="step-indicators">
@@ -229,6 +233,17 @@
     </div>
     
     <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const urlParams = new URLSearchParams(window.location.search);
+            const ducklingName = urlParams.get('duckling-name');
+
+            if (!ducklingName) {
+                window.location.href = 'https://websim.ai/@api/club-duckling-landing-page';
+            } else {
+                document.getElementById('duckling-name-display').textContent = ducklingName;
+            }
+        });
+
         document.querySelector('.back-button').addEventListener('click', function() {
             window.location.href = 'https://websim.ai/@api/club-duckling-name';
         });
