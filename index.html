@@ -191,9 +191,11 @@
             display: flex;
             justify-content: center;
             gap: 20px;
-            margin-top: 20px;
+            margin-top: 1rem;
         }
         .chat-type-button {
+            width: 160px;
+            height: 160px;
             display: flex;
             flex-direction: column;
             align-items: center;
@@ -208,20 +210,21 @@
             transform: scale(1.05);
         }
         .chat-type-icon {
-            width: 80px;
-            height: 80px;
+            width: 100px;
+            height: 100px;
             margin-bottom: 10px;
         }
         .chat-type-button span {
             font-family: 'Fredoka One', cursive;
-            font-size: 1.2rem;
-            color: black;
-        }
-        .chat-type-description {
-            font-family: 'Fredoka One', cursive;
             font-size: 1rem;
             color: black;
-            margin-top: 20px;
+        }
+        .chat-type-subtitle {
+            font-family: 'Fredoka One', cursive;
+            font-size: 1.1rem;
+            color: black;
+            margin-bottom: 2rem;
+            line-height: 1.4;
         }
     </style>
 </head>
@@ -257,7 +260,8 @@
             <p class="warning-text">WARNING: Ducklings may be banned for sharing passwords. Ensure your child's duckling password is only entered on the official clubduckling.com or miniclip.com website</p>
         </div>
         <div class="duckling-protector chat-type-section">
-            <h1 class="title">SELECT YOUR<br>CHAT TYPE</h1>
+            <h1 class="title">YOUR CHILD'S SAFETY<br>IS IMPORTANT</h1>
+            <p class="chat-type-subtitle">Please read the following and select which type<br>of safe-chat you would like your child to use:</p>
             <div class="chat-type-options">
                 <button class="chat-type-button">
                     <img src="/path/to/safe-chat-icon.svg" alt="Safe Chat Icon" class="chat-type-icon">
@@ -268,7 +272,6 @@
                     <span>Ultimate Safe Chat</span>
                 </button>
             </div>
-            <p class="chat-type-description">Choose the chat type for your duckling</p>
         </div>
         <div class="sticky-note">
             REMIND YOUR CHILD TO NEVER SHARE THEIR PASSWORD
