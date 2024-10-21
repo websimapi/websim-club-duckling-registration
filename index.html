@@ -398,9 +398,10 @@
                 // If on step 5 or earlier, navigate to the previous page
                 const urlParams = new URLSearchParams(window.location.search);
                 const ducklingName = urlParams.get('duckling-name');
+                const ducklingColor = urlParams.get('duckling-color');
 
-                if (ducklingName) {
-                    window.location.href = `https://websim.ai/@api/club-duckling-create-duckling?duckling-name=${encodeURIComponent(ducklingName)}&step=4`;
+                if (ducklingName && ducklingColor) {
+                    window.location.href = `https://websim.ai/@api/club-duckling-create-duckling?duckling-name=${encodeURIComponent(ducklingName)}&duckling-color=${encodeURIComponent(ducklingColor)}&step=4`;
                 } else {
                     window.location.href = 'https://websim.ai/@api/club-duckling-landing-page';
                 }
