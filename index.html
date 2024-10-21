@@ -1,0 +1,256 @@
+<html><head><base href="https://duckling.example.com/">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Protect Your Child's Duckling - Club Duckling</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Bangers&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Fredoka+One&display=swap');
+
+        body, html {
+            margin: 0;
+            padding: 0;
+            height: 100%;
+            font-family: 'Bangers', cursive;
+            background-color: #0077be;
+            overflow: hidden;
+        }
+        .container {
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            position: relative;
+        }
+        .light-circle {
+            position: absolute;
+            width: 120%;
+            height: 120%;
+            background: radial-gradient(circle, rgba(255,255,255,0.2) 0%, rgba(0,119,190,0) 70%);
+            top: -10%;
+            left: -10%;
+            pointer-events: none;
+        }
+        .duckling-protector {
+            width: 90%;
+            max-width: 600px;
+            padding: 2rem;
+            box-sizing: border-box;
+            position: relative;
+            z-index: 1;
+            background-color: rgba(255, 255, 255, 0.1);
+            border-radius: 15px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+        .title {
+            font-size: 2.5rem;
+            color: white;
+            margin-bottom: 2rem;
+            text-shadow: 4px 4px 0 #000, -2px -2px 0 #000, 2px -2px 0 #000, -2px 2px 0 #000;
+            letter-spacing: 2px;
+            line-height: 1.2;
+        }
+        .logo-container {
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            z-index: 2;
+        }
+        .websim-logo {
+            transform: scale(0.75);
+            margin-bottom: -10px;
+        }
+        .websim-logo .logo {
+            padding-bottom: 0.25rem;
+            transform: rotate(-6deg);
+            margin-left: 0.25rem;
+            font-weight: bold;
+            font-family: "Comic Sans MS", cursive;
+            letter-spacing: 0.2em;
+            text-shadow: 0.04em 0.04em 0.08em rgba(0,0,0,0.5);
+        }
+        .websim-logo .logo span {
+            display: inline-block;
+        }
+        .websim-logo .logo span:nth-child(1) { color: #4285f4; transform: rotate(-10deg); }
+        .websim-logo .logo span:nth-child(2) { color: #ea4335; transform: rotate(5deg) translateY(-0.2rem); }
+        .websim-logo .logo span:nth-child(3) { color: #fbbc05; transform: rotate(-5deg) translateY(0.1rem); }
+        .websim-logo .logo span:nth-child(4) { color: #4285f4; transform: rotate(10deg) translateY(-0.2rem); }
+        .websim-logo .logo span:nth-child(5) { color: #34a853; transform: rotate(-10deg) translateY(0.2rem); }
+        .websim-logo .logo span:nth-child(6) { color: #ea4335; transform: rotate(5deg) translateY(-0.2rem); }
+        .club-duckling-logo {
+            font-family: 'Fredoka One', cursive;
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: white;
+            text-shadow: 2px 2px 0 #000, -2px -2px 0 #000, 2px -2px 0 #000, -2px 2px 0 #000;
+            line-height: 1;
+        }
+        .club-duckling-logo .club { font-size: 1.875em; letter-spacing: 0.05em; }
+        .club-duckling-logo .duckling { color: #FFA500; }
+        .step-navigation {
+            position: absolute;
+            bottom: 20px;
+            right: 20px;
+            display: flex;
+            align-items: center;
+        }
+        .back-button, .next-button {
+            background-color: #0066a2;
+            color: white;
+            padding: 5px 15px;
+            font-size: 1rem;
+            border: 2px solid black;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-family: 'Fredoka One', cursive;
+            margin-right: 10px;
+        }
+        .back-button:hover, .next-button:hover { background-color: #005691; }
+        .step-indicators {
+            display: flex;
+            align-items: center;
+        }
+        .step-indicator {
+            width: 15px;
+            height: 20px;
+            background-color: #0066a2;
+            margin-left: 3px;
+            clip-path: polygon(0% 0%, 100% 0%, 100% 75%, 50% 100%, 0% 75%);
+        }
+        .step-indicator.active { background-color: white; }
+        .step-text {
+            margin-left: 10px;
+            color: white;
+            font-size: 0.9rem;
+            font-family: 'Fredoka One', cursive;
+            text-shadow: none;
+        }
+        .input-container {
+            margin: 15px 0;
+        }
+        .input-label {
+            display: block;
+            text-align: left;
+            margin-bottom: 5px;
+            color: white;
+            font-family: 'Fredoka One', cursive;
+            font-size: 1rem;
+        }
+        .input-field {
+            width: 100%;
+            padding: 10px;
+            font-size: 1rem;
+            border: 2px solid black;
+            border-radius: 5px;
+            font-family: 'Fredoka One', cursive;
+        }
+        .warning-text {
+            color: #FFD700;
+            font-size: 0.9rem;
+            margin-top: 10px;
+            font-family: 'Fredoka One', cursive;
+        }
+        .sticky-note {
+            position: absolute;
+            width: 150px;
+            height: 150px;
+            background-color: #ffd700;
+            transform: rotate(5deg);
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 1rem;
+            line-height: 1.2;
+            padding: 10px;
+            box-sizing: border-box;
+            font-family: 'Fredoka One', cursive;
+            color: black;
+            text-align: center;
+            right: -60px;
+            top: 50%;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="light-circle"></div>
+        <div class="logo-container">
+            <div class="websim-logo">
+                <div class="logo">
+                    <span>w</span><span>e</span><span>b</span><span>s</span><span>i</span><span>m</span>
+                </div>
+            </div>
+            <div class="club-duckling-logo">
+                <div class="club">CLUB</div>
+                <div class="duckling">DUCKLING</div>
+            </div>
+        </div>
+        <div class="duckling-protector">
+            <h1 class="title">PROTECT YOUR<br>CHILD'S DUCKLING</h1>
+            <div class="input-container">
+                <label class="input-label" for="duckling-name">Duckling Name:</label>
+                <input type="text" id="duckling-name" class="input-field" value="Jellybrocks1" readonly>
+            </div>
+            <div class="input-container">
+                <label class="input-label" for="password">Password:</label>
+                <input type="password" id="password" class="input-field" placeholder="Minimum 6 Characters">
+            </div>
+            <div class="input-container">
+                <label class="input-label" for="confirm-password">Confirm Password:</label>
+                <input type="password" id="confirm-password" class="input-field" placeholder="Minimum 6 Characters">
+            </div>
+            <button class="next-button">Next</button>
+            <p class="warning-text">WARNING: Ducklings may be banned for sharing passwords. Ensure your child's duckling password is only entered on the official clubduckling.com or miniclip.com website</p>
+        </div>
+        <div class="sticky-note">
+            REMIND YOUR CHILD TO NEVER SHARE THEIR PASSWORD
+        </div>
+        <div class="step-navigation">
+            <button class="back-button">Back</button>
+            <div class="step-indicators">
+                <div class="step-indicator active"></div>
+                <div class="step-indicator active"></div>
+                <div class="step-indicator active"></div>
+                <div class="step-indicator active"></div>
+                <div class="step-indicator active"></div>
+                <div class="step-indicator"></div>
+                <div class="step-indicator"></div>
+                <div class="step-indicator"></div>
+            </div>
+            <div class="step-text">Step 5 of 8</div>
+        </div>
+    </div>
+    
+    <script>
+        document.querySelector('.back-button').addEventListener('click', function() {
+            window.location.href = 'https://websim.ai/@api/club-duckling-name';
+        });
+
+        document.querySelector('.next-button').addEventListener('click', function() {
+            const password = document.getElementById('password').value;
+            const confirmPassword = document.getElementById('confirm-password').value;
+            
+            if (password.length < 6) {
+                alert('Password must be at least 6 characters long.');
+                return;
+            }
+            
+            if (password !== confirmPassword) {
+                alert('Passwords do not match.');
+                return;
+            }
+            
+            // Here you would normally send the data to a server
+            // For this example, we'll just simulate moving to the next page
+            window.location.href = 'https://websim.ai/@api/club-duckling-next-step';
+        });
+    </script>
+<script defer src="https://static.cloudflareinsights.com/beacon.min.js/v8c78df7c7c0f484497ecbca7046644da1771523124516" integrity="sha512-8DS7rgIrAmghBFwoOTujcf6D9rXvH8xm8JQ1Ja01h9QX8EzXldiszufYa4IFfKdLUKTTrnSFXLDkUEOTrZQ8Qg==" data-cf-beacon='{"version":"2024.11.0","token":"4c6229722a6346bc8eb5cb0e5eae5d41","server_timing":{"name":{"cfCacheStatus":true,"cfEdge":true,"cfExtPri":true,"cfL4":true,"cfOrigin":true,"cfSpeedBrain":true},"location_startswith":null}}' crossorigin="anonymous"></script>
+</body></html>
