@@ -194,8 +194,8 @@
             margin-top: 2rem;
         }
         .chat-type-button {
-            width: 200px;
-            height: 200px;
+            width: 300px;
+            height: auto;
             display: flex;
             flex-direction: column;
             align-items: center;
@@ -210,25 +210,38 @@
             background-color: #FFA500;
         }
         .chat-type-icon {
-            width: 80px;
-            height: 80px;
+            width: 60px;
+            height: 60px;
             margin-bottom: 15px;
         }
-        .chat-type-button span {
-            font-family: 'Fredoka One', cursive;
-            font-size: 1rem;
-            line-height: 1.3;
+        .chat-type-header {
+            text-align: center;
+            margin-bottom: 15px;
         }
         .chat-type-title {
             font-family: 'Fredoka One', cursive;
-            font-size: 1.2rem;
-            color: black;
+            font-size: 1.4rem;
+            color: #FFA500;
             margin-bottom: 5px;
+        }
+        .chat-type-subtitle {
+            font-family: 'Fredoka One', cursive;
+            font-size: 1.2rem;
+            color: white;
+            text-shadow: 2px 2px 0 #000, -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000;
         }
         .chat-type-description {
             font-family: 'Roboto', sans-serif;
             font-size: 0.9rem;
             color: black;
+            text-align: center;
+            line-height: 1.2;
+            margin-bottom: 10px;
+        }
+        .chat-type-note {
+            font-family: 'Roboto', sans-serif;
+            font-size: 0.8rem;
+            color: #FF0000;
             text-align: center;
             line-height: 1.2;
         }
@@ -274,9 +287,15 @@
                         <circle cx="12" cy="12" r="10" fill="#4285f4"/>
                         <text x="12" y="16" font-size="12" text-anchor="middle" fill="white">SC</text>
                     </svg>
-                    <div class="chat-type-title">Standard Safe Chat</div>
+                    <div class="chat-type-header">
+                        <div class="chat-type-title">STANDARD</div>
+                        <div class="chat-type-subtitle">SAFE-CHAT</div>
+                    </div>
                     <div class="chat-type-description">
-                        Children can communicate freely using a dictionary of pre-approved words
+                        This allows your child to type in his/her own chat messages. Messages are run through sophisticated filters and are moderated by our team in order to keep your child as safe as possible.
+                    </div>
+                    <div class="chat-type-note">
+                        NOTE: Some chat messages in this mode might get through the filters and be offensive to some players.
                     </div>
                 </button>
                 <button class="chat-type-button">
