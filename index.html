@@ -237,19 +237,18 @@
     </div>
     
     <script>
-        function checkDucklingName() {
-            const urlParams = new URLSearchParams(window.location.search);
-            const ducklingName = urlParams.get('duckling-name');
+        document.addEventListener('DOMContentLoaded', function() {
+            setTimeout(function() {
+                const urlParams = new URLSearchParams(window.location.search);
+                const ducklingName = urlParams.get('duckling-name');
 
-            if (!ducklingName) {
-                window.location.href = 'https://websim.ai/@api/club-duckling-landing-page';
-            } else {
-                document.getElementById('duckling-name-display').textContent = ducklingName;
-            }
-        }
-
-        // Wait for the page to fully load before checking for the duckling name
-        window.addEventListener('load', checkDucklingName);
+                if (!ducklingName) {
+                    window.location.href = 'https://websim.ai/@api/club-duckling-landing-page';
+                } else {
+                    document.getElementById('duckling-name-display').textContent = ducklingName;
+                }
+            }, 1000); // Wait for 1 second (1000 milliseconds)
+        });
 
         document.querySelector('.back-button').addEventListener('click', function() {
             window.location.href = 'https://websim.ai/@api/club-duckling-name';
