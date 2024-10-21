@@ -312,6 +312,7 @@
                     if (progress < 100) {
                         requestAnimationFrame(animate);
                     } else {
+                        loadingBar.style.width = '100%'; // Ensure it reaches 100%
                         setTimeout(() => {
                             loadingOverlay.style.display = 'none';
                             checkDucklingName();
